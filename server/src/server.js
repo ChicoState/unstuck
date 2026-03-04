@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 // Retreive users upon call from frontend (will not work until db is set up)
 app.get('/users', async (req, res) => {
 	try {
-		const { rows } = await pool.query('SELECT * FROM users');
+		const { rows } = await pool.query('SELECT * FROM Inquiries');
 		res.json(rows);
 	} catch (error) {
 		console.error(error);
