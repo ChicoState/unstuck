@@ -15,8 +15,7 @@ app.get('/', (req, res) => {
 // Retreive users upon call from frontend (will not work until db is set up)
 app.get('/users', async (req, res) => {
 	try {
-		const [rows, fields] = await pool.query('SELECT * FROM users');
-    
+		const { rows } = await pool.query('SELECT * FROM users');
 		res.json(rows);
 	} catch (error) {
 		console.error(error);
@@ -25,6 +24,6 @@ app.get('/users', async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-	console.log(`Server is running on http://localhost:${port}`);
+app.listen(port, "0.0.0.0", () => {
+	console.log(`Server is running on http://0.0.0.0:${port}`);
 });
