@@ -23,6 +23,17 @@ app.get('/inquiries', async (req, res) => {
 	}
 });
 
+// Retreive answers upon call from frontend
+app.get('/answers', async (req, res) => {
+	try {
+		const { rows } = await pool.query('SELECT * FROM answers');
+		res.json(rows);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ message: 'Database error' });
+	}
+});
+
 // Start the server
 app.listen(port, "0.0.0.0", () => {
 	console.log(`Server is running on http://0.0.0.0:${port}`);
