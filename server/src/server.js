@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 	res.send('Backend server is running!');
 });
 
-// Retreive users upon call from frontend (will not work until db is set up)
-app.get('/users', async (req, res) => {
+// Retreive inquiries upon call from frontend
+app.get('/inquiries', async (req, res) => {
 	try {
 		const { rows } = await pool.query('SELECT * FROM Inquiries');
 		res.json(rows);
