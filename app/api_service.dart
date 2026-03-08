@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class ApiService {
   //main server URL on Fly.io
-  final String baseUrl = 'https://unstuck.fly.dev';
+  final String baseUrl = 'https://unstuck.fly.dev/api';
 
   //Check if server is running
   Future<bool> checkServer() async {
